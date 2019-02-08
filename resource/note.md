@@ -68,5 +68,12 @@
 ![](https://github.com/geekerstar/geek-chat/blob/master/img/7.png)
 
 
+## 实时通信相关概念
+- ajax轮询
+- Long pull
+- websocket
 
-
+### websocket api
+- var socket = new WebSocket("ws://[ip]:[port]");
+- 生命周期：onopen() onmessage() onerror() onclose()
+- 主动方法：Socket.send() Socket.close()
