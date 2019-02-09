@@ -34,7 +34,10 @@ public class UserController {
 	private FastDFSClient fastDFSClient;
 
 	/**
-	 * @Description: 用户注册/登录
+	 * 用户注册/登录
+	 * @param user
+	 * @return
+	 * @throws Exception
 	 */
 	@PostMapping("/registOrLogin")
 	public GeekJSONResult registOrLogin(@RequestBody Users user) throws Exception {
@@ -71,7 +74,10 @@ public class UserController {
 	}
 
 	/**
-	 * Description 上传用户头像
+	 * 上传用户头像
+	 * @param userBO
+	 * @return
+	 * @throws Exception
 	 */
 	@PostMapping("/uploadFaceBase64")
 	public GeekJSONResult uploadFaceBase64(@RequestBody UsersBO userBO) throws Exception {
@@ -86,15 +92,12 @@ public class UserController {
 		String url = fastDFSClient.uploadBase64(faceFile);
 		System.out.println(url);
 
-//		"dhawuidhwaiuh3u89u98432.png"
-//		"dhawuidhwaiuh3u89u98432_80x80.png"
-
 		// 获取缩略图的url
 		String thump = "_80x80.";
 		String arr[] = url.split("\\.");
 		String thumpImgUrl = arr[0] + thump + arr[1];
 
-		// 更细用户头像
+		// 更新用户头像
 		Users user = new Users();
 		user.setId(userBO.getUserId());
 		user.setFaceImage(thumpImgUrl);
@@ -106,7 +109,10 @@ public class UserController {
 	}
 
 	/**
-	 * @Description: 设置用户昵称
+	 * 设置用户昵称
+	 * @param userBO
+	 * @return
+	 * @throws Exception
 	 */
 	@PostMapping("/setNickname")
 	public GeekJSONResult setNickname(@RequestBody UsersBO userBO) throws Exception {
@@ -121,7 +127,11 @@ public class UserController {
 	}
 
 	/**
-	 * @Description: 搜索好友接口, 根据账号做匹配查询而不是模糊查询
+	 * 搜索好友接口, 根据账号做匹配查询而不是模糊查询
+	 * @param myUserId
+	 * @param friendUsername
+	 * @return
+	 * @throws Exception
 	 */
 	@PostMapping("/search")
 	public GeekJSONResult searchUser(String myUserId, String friendUsername)
@@ -150,7 +160,12 @@ public class UserController {
 
 
 	/**
-	 * @Description: 发送添加好友的请求
+	 * 发送添加好友的请求
+	 *
+	 * @param myUserId
+	 * @param friendUsername
+	 * @return
+	 * @throws Exception
 	 */
 	@PostMapping("/addFriendRequest")
 	public GeekJSONResult addFriendRequest(String myUserId, String friendUsername)
@@ -177,7 +192,10 @@ public class UserController {
 	}
 
 	/**
-	 * @Description: 发送添加好友的请求
+	 * 发送添加好友的请求
+	 *
+	 * @param userId
+	 * @return
 	 */
 	@PostMapping("/queryFriendRequests")
 	public GeekJSONResult queryFriendRequests(String userId) {
@@ -193,7 +211,12 @@ public class UserController {
 
 
 	/**
-	 * @Description: 接受方 通过或者忽略朋友请求
+	 * 接受方 通过或者忽略朋友请求
+	 *
+	 * @param acceptUserId
+	 * @param sendUserId
+	 * @param operType
+	 * @return
 	 */
 	@PostMapping("/operFriendRequest")
 	public GeekJSONResult operFriendRequest(String acceptUserId, String sendUserId,
@@ -227,7 +250,9 @@ public class UserController {
 	}
 
 	/**
-	 * @Description: 查询我的好友列表
+	 * 查询我的好友列表
+	 * @param userId
+	 * @return
 	 */
 	@PostMapping("/myFriends")
 	public GeekJSONResult myFriends(String userId) {
@@ -243,8 +268,10 @@ public class UserController {
 	}
 
 	/**
+	 * 用户手机端获取未签收的消息列表
 	 *
-	 * @Description: 用户手机端获取未签收的消息列表
+	 * @param acceptUserId
+	 * @return
 	 */
 	@PostMapping("/getUnReadMsgList")
 	public GeekJSONResult getUnReadMsgList(String acceptUserId) {

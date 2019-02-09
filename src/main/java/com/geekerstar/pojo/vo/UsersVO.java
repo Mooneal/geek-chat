@@ -1,6 +1,5 @@
 package com.geekerstar.pojo.vo;
 
-import java.util.List;
 
 public class UsersVO {
     private String id;

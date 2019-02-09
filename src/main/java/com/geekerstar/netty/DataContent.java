@@ -5,10 +5,18 @@ import java.io.Serializable;
 public class DataContent implements Serializable {
 
 	private static final long serialVersionUID = 8021381444738260454L;
-
-	private Integer action;		// 动作类型
-	private ChatMsg chatMsg;	// 用户的聊天内容entity
-	private String extand;		// 扩展字段
+	/**
+	 * 动作类型
+	 */
+	private Integer action;
+	/**
+	 * 用户的聊天内容entity
+	 */
+	private ChatMsg chatMsg;
+	/**
+	 * 扩展字段
+	 */
+	private String extand;
 
 	public Integer getAction() {
 		return action;

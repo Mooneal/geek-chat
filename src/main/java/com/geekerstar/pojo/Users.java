@@ -7,7 +7,7 @@ public class Users {
     private String id;
 
     /**
-     * 用户名，账号，慕信号
+     * 用户名，账号
      */
     private String username;
 
@@ -52,18 +52,18 @@ public class Users {
     }
 
     /**
-     * 获取用户名，账号，慕信号
+     * 获取用户名，账号
      *
-     * @return username - 用户名，账号，慕信号
+     * @return username - 用户名，账号
      */
     public String getUsername() {
         return username;
     }
 
     /**
-     * 设置用户名，账号，慕信号
+     * 设置用户名，账号
      *
-     * @param username 用户名，账号，慕信号
+     * @param username 用户名，账号
      */
     public void setUsername(String username) {
         this.username = username;

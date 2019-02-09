@@ -13,16 +13,21 @@ package com.geekerstar.utils;
  */
 public class GeekJSONResult {
 
-    // 响应业务状态
+    /**
+     * 响应业务状态
+     */
     private Integer status;
 
-    // 响应消息
+    /**
+     * 响应消息
+     */
     private String msg;
 
-    // 响应中的数据
+    /**
+     * 响应中的数据
+     */
     private Object data;
-
-    private String ok;	// 不使用
+    private String ok;
 
     public static GeekJSONResult build(Integer status, String msg, Object data) {
         return new GeekJSONResult(status, msg, data);

@@ -17,7 +17,8 @@ public class HeartBeatHandler extends ChannelInboundHandlerAdapter {
 
 		// 判断evt是否是IdleStateEvent（用于触发用户事件，包含 读空闲/写空闲/读写空闲 ）
 		if (evt instanceof IdleStateEvent) {
-			IdleStateEvent event = (IdleStateEvent)evt;		// 强制类型转换
+			// 强制类型转换
+			IdleStateEvent event = (IdleStateEvent)evt;
 
 			if (event.state() == IdleState.READER_IDLE) {
 				System.out.println("进入读空闲...");
